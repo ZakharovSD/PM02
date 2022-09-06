@@ -2,23 +2,60 @@
 {
     internal class Program
     {
-        const double ProcBank = 0.08;
+        const double StavkaBank = 0.08;
 
         private static double getProcent(double cash)
         {
-            double money = 0;
-            double procent = 0;
-            while (money <= cash)
+            double dengi = 0;
+            double stavka = 0;
+            
+            
+            
+            while (dengi <= cash)
             {
-                if (cash >= 700000 && cash <= 749999.99)
+                
+                
+                
+                if (dengi == 700000)
                 {
-                    procent = 0.2;
-                    break;
-                }
-
-                if (money == 700000)
-                {
-                    procent = 0.2;
-                    money += 50000;
+                    stavka = 0.2;
+                    dengi += 50000;
                     continue;
                 }
+                
+                
+                
+                if (cash >= 700000 && cash <= 749999.99)
+                {
+                    stavka = 0.2;
+                    break;
+                }
+               
+                
+                
+                if (dengi < 750000)
+                {
+                    dengi += 49999.99;
+                    stavka += 0.01;
+                    dengi += 0.01;
+                }
+                
+                
+                
+                else
+                {
+                    dengi += 49999.99;
+                    stavka -= 0.01;
+                    dengi += 0.01;
+                }
+            }
+            
+            
+            
+            return Math.Round(stavka, 2);
+       
+        
+        
+        }
+    }
+}
